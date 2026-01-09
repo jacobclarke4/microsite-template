@@ -26,13 +26,7 @@ function App() {
 
       {/* Hero Section */}
       <Hero
-   
-
-        
-       
-
         variant="centered"
-
       />
 
       {/* Logo Cloud */}
@@ -110,7 +104,7 @@ function App() {
         secondaryCta="Learn More"
         variant="gradient"
       />
-      {/* Contact Section */  }
+      {/* Contact */}
       <Contact variant='minimal'/>
 
       {/* Footer */}
@@ -119,7 +113,7 @@ function App() {
         tagline="Build beautiful microsites faster than ever."
         variant="columns"
         showNewsletter={true}
-        gradient={{ enabled: true, from: 'gray-800', to: 'black', direction: 'to-b' }}
+        gradient={{ enabled: true, from: '#6f2937', to: '#000000', direction: 'to-b' }}
       />
     </div>
   );

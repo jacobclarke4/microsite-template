@@ -72,7 +72,7 @@ export function buildGradientClasses(gradient?: GradientConfig): string {
 
 // Helper to build inline gradient style for custom stops
 export function buildGradientStyle(gradient?: GradientConfig): React.CSSProperties | undefined {
-  if (!gradient?.enabled || !gradient.stops || gradient.stops.length === 0) return undefined;
+  if (!gradient?.enabled) return undefined;
   
   const direction = gradient.direction || 'to-r';
   const cssDirection: Record<GradientDirection, string> = {
@@ -85,14 +85,29 @@ export function buildGradientStyle(gradient?: GradientConfig): React.CSSProperti
     'to-l': 'to left',
     'to-tl': 'to top left',
   };
-  
-  const stops = gradient.stops
-    .map(s => s.position !== undefined ? `${s.color} ${s.position}%` : s.color)
-    .join(', ');
-  
-  return {
-    background: `linear-gradient(${cssDirection[direction]}, ${stops})`,
-  };
+
+  // Handle from/to (accept hex values directly)
+  if (gradient.from || gradient.to) {
+    const fromColor = gradient.from || 'transparent';
+    const toColor = gradient.to || 'transparent';
+    const viaColor = gradient.via;
+
+    const gradientValue = viaColor
+      ? `linear-gradient(${cssDirection[direction]}, ${fromColor}, ${viaColor}, ${toColor})`
+      : `linear-gradient(${cssDirection[direction]}, ${fromColor}, ${toColor})`;
+
+    return { background: gradientValue };
+  }
+
+  // Handle custom stops
+  if (gradient.stops?.length) {
+    const stops = gradient.stops
+      .map(s => s.position !== undefined ? `${s.color} ${s.position}%` : s.color)
+      .join(', ');
+    return { background: `linear-gradient(${cssDirection[direction]}, ${stops})` };
+  }
+
+  return undefined;
 }
 
 export const fontSizeMap: Record<FontSize, string> = {
