@@ -124,7 +124,7 @@ export function Timeline({
                   {getStatusIcon(item.status)}
                 </div>
                 {showDates && item.date && (
-                  <Text fontSize="sm" textColor="text-blue-600" fontWeight="medium" className="mt-2">
+                  <Text fontSize="sm" textColor="text-[var(--secondary)]" fontWeight="medium" className="mt-2">
                     {item.date}
                   </Text>
                 )}

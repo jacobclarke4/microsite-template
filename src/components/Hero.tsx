@@ -77,17 +77,25 @@ export function Hero({
       </Text>
       
       <ButtonGroup className={clsx(variant === 'centered' && 'justify-center')}>
-        <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-          <a href={primaryHref}>{primaryCta}</a>
-        </Button>
-        {showPlayButton ? (
-          <Button variant="outline" size="lg" leftIcon={<Play className="w-5 h-5" />}>
-            <a href={secondaryHref}>Watch Demo</a>
+        <a href={primaryHref}>
+          <Button size="lg" className='!bg-[var(--secondary)] hover:!bg-[var(--secondary-hover)] !text-[var(--primary)] cursor-pointer' rightIcon={<ArrowRight className="w-5 h-5 " />}>
+            {primaryCta}
           </Button>
-        ) : (
-          <Button variant="outline" size="lg">
-            <a href={secondaryHref}>{secondaryCta}</a>
-          </Button>
+        </a>
+        {showPlayButton && (
+          <a href={secondaryHref}>
+            <Button variant="outline" size="lg" className='!bg-[var(--secondary)] !text-[var(--primary)]' leftIcon={<Play className="w-5 h-5" />}>
+              Watch Demo
+            </Button>
+          </a>
+        )
+        }
+        {!showPlayButton && secondaryCta && (
+          <a href={secondaryHref}>
+            <Button variant="outline" size="lg" className='!border-[var(--secondary)] hover:!border-[var(--secondary-hover)] hover:!bg-white !text-[var(--primary)]'>
+              {secondaryCta}
+            </Button>
+          </a>
         )}
       </ButtonGroup>
     </div>
@@ -103,7 +111,7 @@ export function Hero({
   if (variant === 'split' || variant === 'splitReverse') {
     return (
       <section className={clsx(bgClasses, paddingYMap[paddingY], className)} style={gradientStyle}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className={clsx(
               'grid grid-cols-1 lg:grid-cols-2 gap-12 items-center',

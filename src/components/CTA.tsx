@@ -82,7 +82,6 @@ export function CTA({
                 size="lg"
                 bgColor="bg-white hover:bg-gray-100"
                 textColor="text-blue-600"
-                rightIcon={<ArrowRight className="w-5 h-5" />}
               >
                 <a href={primaryHref}>{primaryCta}</a>
               </Button>
@@ -174,7 +173,7 @@ export function CTA({
             {subtitle}
           </Text>
           <ButtonGroup className="justify-center">
-            <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+            <Button size="lg">
               <a href={primaryHref}>{primaryCta}</a>
             </Button>
             <Button variant="outline" size="lg">
@@ -213,7 +212,6 @@ export function CTA({
             size="lg"
             bgColor="bg-white hover:bg-gray-100"
             textColor="text-blue-600"
-            rightIcon={<ArrowRight className="w-5 h-5" />}
           >
             <a href={primaryHref}>{primaryCta}</a>
           </Button>

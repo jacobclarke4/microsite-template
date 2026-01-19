@@ -25,6 +25,7 @@ interface FooterProps {
   tagline?: string;
   columns?: FooterColumn[];
   socialLinks?: SocialLink[];
+  policyLinks?: FooterLink[];
   copyright?: string;
   bgColor?: string;
   textColor?: string;
@@ -81,6 +82,11 @@ const defaultSocialLinks: SocialLink[] = [
   { icon: <Linkedin className="w-5 h-5" />, href: '#', label: 'LinkedIn' },
   { icon: <Instagram className="w-5 h-5" />, href: '#', label: 'Instagram' },
 ];
+const defaultPolicyLinks: FooterLink[] = [
+  { label: 'Privacy Policy', href: '#' },
+  { label: 'Terms of Service', href: '#' },
+  { label: 'Cookie Policy', href: '#' },
+];
 
 export function Footer({
   logo,
@@ -88,6 +94,7 @@ export function Footer({
   tagline = 'Making the world a better place through innovative solutions.',
   columns = defaultColumns,
   socialLinks = defaultSocialLinks,
+  policyLinks = defaultPolicyLinks,
   copyright = `© ${new Date().getFullYear()} BrandName. All rights reserved.`,
   bgColor = 'bg-gray-900',
   textColor = 'text-gray-300',
@@ -116,7 +123,7 @@ export function Footer({
   if (variant === 'minimal') {
     return (
       <footer className={clsx(bgClasses, 'py-8', className)} style={gradientStyle}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {renderLogo()}
             <div className="flex items-center gap-6">
@@ -141,7 +148,7 @@ export function Footer({
   if (variant === 'simple') {
     return (
       <footer className={clsx(bgClasses, 'py-12', className)} style={gradientStyle}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
             {renderLogo()}
             <p className={clsx('mt-4 max-w-md', textColor)}>{tagline}</p>
@@ -171,7 +178,7 @@ export function Footer({
   // Columns variant (default)
   return (
     <footer className={clsx(bgClasses, 'py-16', className)} style={gradientStyle}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-16">
           {/* Brand column */}
           <div className="col-span-2">
@@ -228,11 +235,13 @@ export function Footer({
         <div className={clsx('mt-12 pt-8 border-t', borderColor)}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className={clsx('text-sm', textColor)}>{copyright}</p>
+            { policyLinks && policyLinks.length > 0 &&
             <div className="flex items-center gap-6">
               <a href="#" className={clsx('text-sm', linkColor)}>Privacy Policy</a>
               <a href="#" className={clsx('text-sm', linkColor)}>Terms of Service</a>
               <a href="#" className={clsx('text-sm', linkColor)}>Cookie Policy</a>
             </div>
+    }
           </div>
         </div>
       </div>

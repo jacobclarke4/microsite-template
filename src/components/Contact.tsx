@@ -205,9 +205,8 @@ export function Contact({
             bgColor={buttonBgColor}
             textColor={buttonTextColor}
             fullWidth
-            rightIcon={isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
             disabled={isSubmitting}
-            className="mt-2"
+            className="mt-2 cursor-pointer"
           >
             {isSubmitting ? 'Sending...' : submitText}
           </Button>
@@ -484,9 +483,8 @@ export function ContactForm({
         bgColor={buttonBgColor}
         textColor={buttonTextColor}
         fullWidth
-        rightIcon={isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
         disabled={isSubmitting}
-        className="mt-2"
+        className="mt-2 cursor-pointer"
       >
         {isSubmitting ? 'Sending...' : submitText}
       </Button>

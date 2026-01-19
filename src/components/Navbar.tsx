@@ -63,7 +63,7 @@ export function Navbar({
         )}
         style={gradient?.enabled ? gradientStyle : undefined}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
@@ -86,7 +86,7 @@ export function Navbar({
                     className={clsx(
                       'flex items-center gap-1 text-sm font-medium transition-colors',
                       textColor,
-                      'hover:text-blue-600'
+                      'hover:text-[var(--secondary)]'
                     )}
                   >
                     {link.label}
@@ -115,7 +115,7 @@ export function Navbar({
             <div className="hidden md:block">
               <a
                 href={ctaHref}
-                className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium text-[var(--primary)] bg-[var(--secondary)] rounded-lg hover:bg-[var(--secondary-hover)] transition-colors"
               >
                 {ctaText}
               </a>

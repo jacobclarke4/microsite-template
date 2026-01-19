@@ -4,116 +4,126 @@ import {
   LogoCloud,
   Features,
   Stats,
-  Testimonials,
-  Pricing,
-  FAQ,
-  CTA,
-  Team,
   Timeline,
   Footer,
   Divider,
+  Team,
+  CTA,
 } from './components';
+import { Building, CircleDollarSign, Handshake} from 'lucide-react'
 import { Contact } from './components/Contact';
+import { AnimatedTimeline } from './components/AnimatedTimeline';
+
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
       <Navbar
-
+        links={[
+          { label: 'Platform', href: '#platform' },
+          { label: 'Our Story', href: '#journey' },
+          { label: 'Leadership', href: '#team' },
+          { label: 'Contact', href: '#contact' },
+        ]}
+        ctaText="Get Started"
+        ctaHref="#contact"
         sticky={true}
       />
 
       {/* Hero Section */}
-      <Hero
-        variant="centered"
-      />
-
-      {/* Logo Cloud */}
-      <LogoCloud
-        title="Trusted by innovative teams"
-        variant="simple"
-        grayscale={true}
-      />
+      <section>
+        <Hero
+        />
+      </section>
 
       <Divider spacing="lg" />
 
-      {/* Features - Cards variant */}
-      <Features
-        cols={3}
-        gap="lg"
-        variant="cards"
-        cardHover={true}
-      />
+      {/* Platform - Three Pillars */}
+      <section id="platform">
+        <Features
+        />
+      </section>
 
       {/* Stats */}
       <Stats
-        title="Lorenmipsum dolor sit amet"
-        subtitle="Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        variant="simple"
-        cols={4}
-      />
-
-      {/* Testimonials */}
-      <Testimonials
-        title="Lorem ipsum dolor sit amet"
-        subtitle="Consectetur adipiscing elit"
-        cols={3}
-        variant="cards"
-        showRating={true}
       />
 
       {/* Timeline */}
-      <Timeline
-        title="Our Roadmap"
-        subtitle="See what we've accomplished and what's coming next."
-        variant="vertical"
-        bgColor="bg-gray-50"
-      />
+      <section id="journey">
+        <AnimatedTimeline
+          title='Our Journey'
+          textColor='text-black'
+          items={[
+            {
+              date: '2019',
+              title: 'Foundation',
+              description: 'We founded the company.'
+            },
+            {
+              date: '2020',
+              title:'First Proof of Concept',
+              description: 'We achieved our first major milestone.'},
+            {
+              date: '2021',
+              title: 'Milestone Achieved',
+              description: 'Then we did this important thing.'
+            },
+            {
+              date: '2022',
+              title: 'Milestone Reached',
+              description: 'We reached another significant milestone.'
+            },
+          ]}
+        />
+      </section>
 
-      {/* Pricing */}
-      <Pricing
-        title="Simple, transparent pricing"
-        subtitle="Choose the plan that works best for you."
-        cols={3}
-      />
 
-      {/* FAQ */}
-      <FAQ
-        title="Frequently asked questions"
-        subtitle="Find answers to common questions."
-        variant="simple"
-        iconStyle="chevron"
-        bgColor="bg-gray-50"
-      />
+      {/* Leadership Team */}
+      <section id="team">
+        <Team
+          title="Leadership Team"
+          subtitle="World-class expertise across energy infrastructure, real estate development, and capital markets"
+          cols={4}
+          variant="cards"
+          showSocial={false}
+          textColor='text-white'
+          cardBgColor='bg-[var(--primary)]'
+          members={[
+            {
+              name: 'Bob Williams',
+              role: 'Chief Executive Officer',
+              social: { linkedin: '#' },
+            },
+            {
+              name: 'Gary Johnson',
+              role: 'Partner & Co-Founder',
+              social: { linkedin: '#' },
+            },
+            {
+              name: 'Jessica Smith',
+              role: 'Engineering',
+              social: { linkedin: '#' },
+            },
+            {
+              name: 'Janet Lee',
+              role: 'Design',
+              social: { linkedin: '#' },
+            },
+          ]}
+        />
+      </section>
 
-      {/* Team */}
-      <Team
-        title="Meet the team"
-        subtitle="The people behind this project."
-        cols={4}
-        variant="cards"
-        showSocial={true}
-      />
-
-      {/* CTA */}
-      <CTA
-        title="Ready to get started?"
-        subtitle="Create your first microsite in minutes with our component library."
-        primaryCta="Start Building"
-        secondaryCta="Learn More"
-        variant="gradient"
-      />
       {/* Contact */}
-      <Contact variant='minimal'/>
+      <section id="contact">
+        <Contact 
+        variant='minimal'
+        />
+      </section>
 
       {/* Footer */}
       <Footer
-        logoText="MicroSite"
-        tagline="Build beautiful microsites faster than ever."
-        variant="columns"
-        showNewsletter={true}
-        gradient={{ enabled: true, from: '#6f2937', to: '#000000', direction: 'to-b' }}
+        
       />
     </div>
   );

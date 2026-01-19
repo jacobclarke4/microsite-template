@@ -10,6 +10,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --primary: #312439;
+  --primary-hover: #4b3754;
+  --secondary: #ebbe07;
+  --secondary-hover: #d4a900;
 }
 
 html {

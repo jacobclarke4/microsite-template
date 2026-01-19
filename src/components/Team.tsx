@@ -7,6 +7,7 @@ import { Card } from './Card';
 import { Heading, Text } from './Typography';
 import { GridCols, Gap, Padding, ShadowSize, Rounded, GradientConfig } from '../types';
 
+
 interface SocialLinks {
   twitter?: string;
   linkedin?: string;
@@ -68,7 +69,13 @@ const defaultMembers: TeamMember[] = [
   },
 ];
 
-function Avatar({ name, size = 'lg' }: { name: string; size?: 'sm' | 'md' | 'lg' | 'xl' }) {
+interface AvatarProps {
+  name: string;
+  image?: string;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+}
+
+function Avatar({ name, image, size = 'lg' }: AvatarProps) {
   const sizes = {
     sm: 'w-12 h-12 text-lg',
     md: 'w-16 h-16 text-xl',
@@ -93,6 +100,21 @@ function Avatar({ name, size = 'lg' }: { name: string; size?: 'sm' | 'md' | 'lg'
   ];
 
   const colorIndex = name.length % colors.length;
+
+  if (image) {
+    return (
+      <div className='bg-[var(--secondary)] rounded-full'>
+        <img
+          src={image}
+          alt={name}
+          className={clsx(
+            'rounded-full object-cover',
+            sizes[size]
+          )}
+        />
+      </div>
+    );
+  }
 
   return (
     <div
@@ -148,12 +170,12 @@ export function Team({
       return (
         <div key={index} className="text-center">
           <div className="flex justify-center mb-4">
-            <Avatar name={member.name} />
+            <Avatar name={member.name} image={member.avatar} />
           </div>
           <Heading as="h3" fontSize="xl" fontWeight="semibold" textAlign="center" className="mb-1">
             {member.name}
           </Heading>
-          <Text textAlign="center" textColor="text-blue-600" fontSize="sm" className="mb-3">
+          <Text textAlign="center" textColor="text-[var(--secondary)]" fontSize="sm" className="mb-3">
             {member.role}
           </Text>
           {showBio && member.bio && (
@@ -175,7 +197,7 @@ export function Team({
     if (variant === 'compact') {
       return (
         <div key={index} className="flex items-center gap-4">
-          <Avatar name={member.name} size="md" />
+          <Avatar name={member.name} image={member.avatar} size="md" />
           <div>
             <Heading as="h3" fontSize="lg" fontWeight="semibold">
               {member.name}
@@ -200,16 +222,16 @@ export function Team({
         className="text-center"
       >
         <div className="flex justify-center mb-4">
-          <Avatar name={member.name} />
+          <Avatar name={member.name} image={member.avatar} />
         </div>
-        <Heading as="h3" fontSize="xl" fontWeight="semibold" textAlign="center" className="mb-1">
+        <Heading as="h3" fontSize="xl" fontWeight="semibold" textAlign="center" className="mb-1 !text-white">
           {member.name}
         </Heading>
-        <Text textAlign="center" textColor="text-blue-600" fontSize="sm" fontWeight="medium" className="mb-3">
+        <Text textAlign="center" textColor="text-[var(--secondary)]" fontSize="sm" fontWeight="medium" className="mb-3">
           {member.role}
         </Text>
         {showBio && member.bio && (
-          <Text textAlign="center" textColor="text-gray-600" fontSize="sm">
+          <Text textAlign="center" textColor="text-white" fontSize="sm">
             {member.bio}
           </Text>
         )}

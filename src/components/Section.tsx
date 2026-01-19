@@ -16,7 +16,7 @@ export function Section({
   textColor = 'text-gray-900',
   paddingY = 'lg',
   paddingX = 'md',
-  maxWidth = '7xl',
+  maxWidth = '6xl',
   fullWidth = false,
   gradient,
   className,
