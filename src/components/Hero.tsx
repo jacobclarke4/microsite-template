@@ -3,16 +3,19 @@ import { ReactNode } from 'react';
 import clsx from 'clsx';
 import { ArrowRight, Play } from 'lucide-react';
 import { Button, ButtonGroup } from './Button';
-import { Heading, Text, Badge } from './Typography';
+import { Heading, Text} from './Typography';
 import { TextAlign, Padding, paddingYMap, GradientConfig, buildGradientClasses, buildGradientStyle } from '../types';
 
 interface HeroProps {
-  badge?: string;
   title?: string;
   subtitle?: string;
   primaryCta?: string;
   primaryHref?: string;
+  primaryButtonBgColor?: string;
+  primaryButtonTextColor?: string;
   secondaryCta?: string;
+  secondaryButtonBgColor?: string;
+  secondaryButtonTextColor?: string;
   secondaryHref?: string;
   image?: ReactNode;
   bgColor?: string;
@@ -27,11 +30,14 @@ interface HeroProps {
 }
 
 export function Hero({
-  badge = 'Announcing our new feature',
   title = 'Lorem ipsum dolor sit amet consectetur adipiscing',
   subtitle = 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
   primaryCta = 'Get Started',
   primaryHref = '#',
+  primaryButtonBgColor = 'bg-[var(--primary)]',
+  primaryButtonTextColor = 'text-white',
+  secondaryButtonBgColor = 'bg-white',
+  secondaryButtonTextColor = 'text-[var(--primary)]',
   secondaryCta = 'Learn More',
   secondaryHref = '#',
   image,
@@ -49,13 +55,7 @@ export function Hero({
   const gradientStyle = buildGradientStyle(gradient);
   const bgClasses = gradient?.enabled ? gradientClasses : bgColor;
   const renderContent = () => (
-    <div className={clsx(variant === 'centered' && 'max-w-3xl mx-auto')}>
-      {badge && (
-        <div className={clsx('mb-6', variant === 'centered' && 'flex justify-center')}>
-          <Badge>{badge}</Badge>
-        </div>
-      )}
-      
+    <div className={clsx(variant === 'centered' && 'max-w-3xl mx-auto')}>      
       <Heading
         as="h1"
         fontSize="5xl"
@@ -78,13 +78,17 @@ export function Hero({
       
       <ButtonGroup className={clsx(variant === 'centered' && 'justify-center')}>
         <a href={primaryHref}>
-          <Button size="lg" className='!bg-[var(--secondary)] hover:!bg-[var(--secondary-hover)] !text-[var(--primary)] cursor-pointer' rightIcon={<ArrowRight className="w-5 h-5 " />}>
+          <Button 
+            size="lg" 
+            className="bg-[var(--primary)] hover:!bg-[var(--primary-dark)] text-white cursor-pointer" 
+            rightIcon={<ArrowRight className="w-5 h-5" />}
+          >
             {primaryCta}
           </Button>
         </a>
         {showPlayButton && (
           <a href={secondaryHref}>
-            <Button variant="outline" size="lg" className='!bg-[var(--secondary)] !text-[var(--primary)]' leftIcon={<Play className="w-5 h-5" />}>
+            <Button variant="outline" size="lg" className={clsx(secondaryButtonBgColor, secondaryButtonTextColor)} leftIcon={<Play className="w-5 h-5" />}>
               Watch Demo
             </Button>
           </a>
@@ -92,7 +96,7 @@ export function Hero({
         }
         {!showPlayButton && secondaryCta && (
           <a href={secondaryHref}>
-            <Button variant="outline" size="lg" className='!border-[var(--secondary)] hover:!border-[var(--secondary-hover)] hover:!bg-white !text-[var(--primary)]'>
+            <Button variant="outline" size="lg" className={clsx(secondaryButtonBgColor, secondaryButtonTextColor)}>
               {secondaryCta}
             </Button>
           </a>

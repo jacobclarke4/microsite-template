@@ -30,9 +30,9 @@ export function CTA({
   primaryHref = '#',
   secondaryCta = 'Contact Sales',
   secondaryHref = '#',
-  bgColor = 'bg-blue-600',
+  bgColor = 'bg-white',
   textColor = 'text-white',
-  subtitleColor = 'text-blue-100',
+  subtitleColor = 'text-white',
   paddingY = 'xl',
   variant = 'simple',
   rounded = '2xl',
@@ -46,7 +46,7 @@ export function CTA({
         <div
           className={clsx(
             'relative overflow-hidden py-16 px-8 md:px-16',
-            'bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600',
+            'bg-white',
             'bg-[length:200%_100%] animate-gradient',
             roundedMap[rounded]
           )}
@@ -55,7 +55,7 @@ export function CTA({
             {showIcon && (
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-                  <Sparkles className="w-8 h-8 text-white" />
+                  <Sparkles className={clsx("w-8 h-8 ", textColor)} />
                 </div>
               </div>
             )}
@@ -64,7 +64,7 @@ export function CTA({
               fontSize="4xl"
               fontWeight="bold"
               textAlign="center"
-              textColor="text-white"
+              textColor={textColor}
               className="mb-4"
             >
               {title}
@@ -72,7 +72,7 @@ export function CTA({
             <Text
               fontSize="lg"
               textAlign="center"
-              textColor="text-white/80"
+              textColor={subtitleColor}
               className="max-w-xl mx-auto mb-8"
             >
               {subtitle}
@@ -80,16 +80,16 @@ export function CTA({
             <ButtonGroup className="justify-center">
               <Button
                 size="lg"
-                bgColor="bg-white hover:bg-gray-100"
-                textColor="text-blue-600"
+                bgColor="bg-[var(--primary)] hover:bg-[var(--primary-dark)]"
+                textColor="text-white"
               >
                 <a href={primaryHref}>{primaryCta}</a>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                bgColor="border-white/30 hover:bg-white/10"
-                textColor="text-white"
+                bgColor="border-[var(--primary)] bg-transparent hover:bg-gray-100"
+                textColor="text-[var(--primary)]"
               >
                 <a href={secondaryHref}>{secondaryCta}</a>
               </Button>
@@ -98,8 +98,8 @@ export function CTA({
 
           {/* Background decoration */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-1/2 -left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+            <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-white/20 rounded-full blur-3xl" />
+            <div className="absolute -bottom-1/2 -left-1/4 w-96 h-96 bg-white/20 rounded-full blur-3xl" />
           </div>
         </div>
       </Section>

@@ -17,7 +17,6 @@ interface Feature {
 }
 
 interface FeaturesProps {
-  badge?: string;
   title?: string;
   subtitle?: string;
   features?: Feature[];
@@ -73,7 +72,6 @@ const defaultFeatures: Feature[] = [
 ];
 
 export function Features({
-  badge,
   title = 'Lorem ipsum dolor',
   subtitle = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
   features = defaultFeatures,
@@ -171,11 +169,7 @@ export function Features({
   return (
     <Section bgColor={bgColor} textColor={textColor} paddingY={paddingY} gradient={gradient} className={className}>
       <div className="text-center mb-12">
-        {badge && (
-          <span className="inline-block px-3 py-1 mb-4 text-sm font-medium text-blue-600 bg-blue-100 rounded-full">
-            {badge}
-          </span>
-        )}
+
         <Heading as="h2" fontSize="4xl" textAlign="center" className="mb-4">
           {title}
         </Heading>

@@ -118,7 +118,7 @@ export function AnimatedTimeline({
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-200 to-gray-300">
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
                         <span className="text-4xl font-bold text-gray-400">{item.date}</span>
                       </div>
                     )}
@@ -136,14 +136,15 @@ export function AnimatedTimeline({
           {/* Right side - Timeline Items */}
           <div className="relative">
             {/* Timeline track background */}
-            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200" />
+            <div className="absolute left-4 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gray-200" />
+
             
             {/* Animated progress line */}
             <div 
-              className="absolute left-4 top-0 w-0.5 transition-all duration-500 ease-out origin-top"
+              className="absolute left-4 -translate-x-1/2 top-0 w-0.5 transition-all duration-500 ease-out origin-top"
               style={{ 
                 height: `${progress}%`,
-                backgroundColor: accentColor,
+                backgroundColor: 'var(--primary)',
               }}
             />
 
@@ -170,13 +171,13 @@ export function AnimatedTimeline({
                           : 'scale-75'
                       )}
                       style={{
-                        backgroundColor: index <= activeIndex ? accentColor : '#e5e7eb',
+                        backgroundColor: index <= activeIndex ? 'var(--primary)' : '#e5e7eb',
                       }}
                     >
                       {index < activeIndex ? (
-                        <Check className="w-4 h-4 text-[var(--primary)]" />
+                        <Check className="w-4 h-4 text-white" />
                       ) : index === activeIndex ? (
-                        <div className="w-3 h-3 rounded-full bg-[var(--primary)]" />
+                        <div className="w-3 h-3 rounded-full bg-white" />
                       ) : (
                         <div className="w-3 h-3 rounded-full bg-gray-400" />
                       )}
@@ -193,10 +194,10 @@ export function AnimatedTimeline({
                     )}
                   >
                     <Text 
-                      fontSize="sm" 
+                      fontSize="base" 
                       fontWeight="semibold" 
                       className="mb-1"
-                      textColor="text-[var(--secondary)]"
+                      textColor="text-[var(--primary)]"
                     >
                       {item.date}
                     </Text>

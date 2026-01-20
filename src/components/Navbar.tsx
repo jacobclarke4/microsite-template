@@ -22,6 +22,8 @@ interface NavbarProps {
   transparent?: boolean;
   gradient?: GradientConfig;
   className?: string;
+  buttonTextColor?: string;
+  buttonBgColor?: string;
 }
 
 const defaultLinks: NavLink[] = [
@@ -38,7 +40,7 @@ export function Navbar({
   ctaText = 'Get Started',
   ctaHref = '#',
   bgColor = 'bg-white',
-  textColor = 'text-gray-900',
+  textColor = 'text-black',
   shadow = 'sm',
   sticky = true,
   transparent = false,
@@ -69,11 +71,11 @@ export function Navbar({
             <div className="flex-shrink-0">
               <a href="/" className={clsx('flex items-center gap-2', textColor)}>
                 {logo || (
-                  <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">L</span>
+                  <div className="w-8 h-8 bg-[var(--primary)] rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">{logoText.charAt(0).toLocaleUpperCase()}</span>
                   </div>
                 )}
-                <span className="font-semibold text-xl">{logoText}</span>
+                <span className={clsx("font-semibold text-xl", textColor)}>{logoText}</span>
               </a>
             </div>
 
@@ -86,20 +88,20 @@ export function Navbar({
                     className={clsx(
                       'flex items-center gap-1 text-sm font-medium transition-colors',
                       textColor,
-                      'hover:text-[var(--secondary)]'
+                      'hover:text-[var(--primary)]'
                     )}
                   >
                     {link.label}
                     {link.children && <ChevronDown className="w-4 h-4" />}
                   </a>
                   {link.children && (
-                    <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200" style={gradient?.enabled ? gradientStyle : undefined}>
                       <div className="py-2">
                         {link.children.map((child) => (
                           <a
                             key={child.label}
                             href={child.href}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            className="block px-4 py-2 text-sm text-black hover:bg-gray-100"
                           >
                             {child.label}
                           </a>
@@ -115,7 +117,11 @@ export function Navbar({
             <div className="hidden md:block">
               <a
                 href={ctaHref}
-                className="inline-flex items-center px-4 py-2 text-sm font-medium text-[var(--primary)] bg-[var(--secondary)] rounded-lg hover:bg-[var(--secondary-hover)] transition-colors"
+                className={clsx(
+                  "inline-flex items-center justify-center px-4 py-2 text-medium font-medium rounded-lg transition-colors text-white bg-[var(--primary)] hover:bg-[var(--primary-dark)]",
+                  "hover:opacity-90",
+                )}
+                onClick={() => setIsOpen(false)}
               >
                 {ctaText}
               </a>
@@ -144,7 +150,7 @@ export function Navbar({
             <a
               key={link.label}
               href={link.href}
-              className="text-2xl font-medium text-gray-900 hover:text-blue-600 transition-colors"
+              className="text-2xl font-medium text-black hover:text-[var(--primary)] transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
@@ -152,7 +158,7 @@ export function Navbar({
           ))}
           <a
             href={ctaHref}
-            className="mt-4 inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+            className="mt-4 inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-white bg-[var(--primary)] rounded-lg hover:bg-[var(--primary-dark)] transition-colors"
             onClick={() => setIsOpen(false)}
           >
             {ctaText}

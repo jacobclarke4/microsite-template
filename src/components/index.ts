@@ -5,7 +5,7 @@ export { Container, Divider, Spacer, AspectRatio, ImagePlaceholder } from './Uti
 export { Skeleton, SkeletonText, SkeletonCard, SkeletonAvatar } from './Utilities';
 
 // Typography Components
-export { Heading, Text, Badge } from './Typography';
+export { Heading, Text} from './Typography';
 
 // UI Components
 export { Button, ButtonGroup } from './Button';

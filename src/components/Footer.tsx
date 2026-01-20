@@ -97,8 +97,8 @@ export function Footer({
   policyLinks = defaultPolicyLinks,
   copyright = `© ${new Date().getFullYear()} BrandName. All rights reserved.`,
   bgColor = 'bg-gray-900',
-  textColor = 'text-gray-300',
-  linkColor = 'text-gray-400 hover:text-white',
+  textColor = 'text-black',
+  linkColor = 'text-black hover:text-[var(--primary)]',
   borderColor = 'border-gray-800',
   showNewsletter = false,
   variant = 'columns',
@@ -112,11 +112,11 @@ export function Footer({
   const renderLogo = () => (
     <div className="flex items-center gap-2">
       {logo || (
-        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-          <span className="text-white font-bold text-sm">L</span>
+        <div className="w-8 h-8 bg-[var(--primary)] rounded-lg flex items-center justify-center">
+          <span className="text-white font-bold text-sm">{logoText.charAt(0).toUpperCase()}</span>
         </div>
       )}
-      <span className="font-semibold text-xl text-white">{logoText}</span>
+      <span className={clsx("font-semibold text-xl", textColor)}>{logoText}</span>
     </div>
   );
 
@@ -191,7 +191,7 @@ export function Footer({
                   key={index}
                   href={social.href}
                   aria-label={social.label}
-                  className={clsx('p-2 rounded-lg bg-gray-800 transition-colors', linkColor)}
+                  className={clsx('p-2 rounded-lg bg-none transition-colors', linkColor)}
                 >
                   {social.icon}
                 </a>
@@ -200,15 +200,15 @@ export function Footer({
 
             {showNewsletter && (
               <div className="mt-8">
-                <p className="text-sm font-medium text-white mb-3">Subscribe to our newsletter</p>
+                <p className={clsx("text-sm font-medium mb-3", textColor)}>Subscribe to our newsletter</p>
                 <div className="flex gap-2">
                   <input
                     type="email"
                     placeholder="Your email"
-                    className="flex-1 px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className={clsx("flex-1 px-3 py-2 rounded-lg bg-white border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]", textColor)}
                   />
-                  <button className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700">
-                    <Mail className="w-4 h-4" />
+                  <button className={clsx("px-4 py-2 bg-[var(--primary)] rounded-lg text-sm font-medium hover:bg-[var(--primary-dark)]", textColor)}>
+                    <Mail className="w-4 h-4 text-white" />
                   </button>
                 </div>
               </div>
@@ -218,7 +218,7 @@ export function Footer({
           {/* Link columns */}
           {columns.map((column, index) => (
             <div key={index}>
-              <h3 className="font-semibold text-white mb-4">{column.title}</h3>
+              <h3 className={clsx("font-semibold mb-4", textColor)}>{column.title}</h3>
               <ul className="space-y-3">
                 {column.links.map((link, linkIndex) => (
                   <li key={linkIndex}>

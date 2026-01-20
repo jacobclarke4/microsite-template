@@ -75,7 +75,7 @@ function Avatar({ name, size = 'md' }: { name: string; size?: 'sm' | 'md' | 'lg'
   return (
     <div
       className={clsx(
-        'rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-medium',
+        'rounded-full bg-[var(--primary)] flex items-center justify-center text-white font-medium',
         sizes[size]
       )}
     >
@@ -233,7 +233,7 @@ export function FeaturedTestimonial({
   author = 'Jane Smith',
   role = 'CEO',
   company = 'TechCorp',
-  bgColor = 'bg-blue-600',
+  bgColor = 'bg-[var(--primary)]',
   className,
 }: FeaturedTestimonialProps) {
   return (

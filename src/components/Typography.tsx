@@ -69,35 +69,3 @@ export function Text({
   );
 }
 
-interface BadgeProps {
-  children: ReactNode;
-  bgColor?: string;
-  textColor?: string;
-  rounded?: 'md' | 'full';
-  size?: 'sm' | 'md';
-  className?: string;
-}
-
-export function Badge({
-  children,
-  bgColor = 'bg-blue-100',
-  textColor = 'text-blue-700',
-  rounded = 'full',
-  size = 'sm',
-  className,
-}: BadgeProps) {
-  return (
-    <span
-      className={clsx(
-        'inline-flex items-center font-medium',
-        bgColor,
-        textColor,
-        rounded === 'full' ? 'rounded-full' : 'rounded-md',
-        size === 'sm' ? 'px-2.5 py-0.5 text-xs' : 'px-3 py-1 text-sm',
-        className
-      )}
-    >
-      {children}
-    </span>
-  );
-}
