@@ -119,7 +119,7 @@ function Avatar({ name, image, size = 'lg' }: AvatarProps) {
   return (
     <div
       className={clsx(
-        'rounded-full bg-gradient-to-br flex items-center justify-center text-white font-semibold',
+        'rounded-full bg-gradient-to-br flex items-center justify-center font-semibold',
         sizes[size],
         colors[colorIndex]
       )}
@@ -140,7 +140,7 @@ function SocialIcon({ platform, href }: { platform: string; href: string }) {
   return (
     <a
       href={href}
-      className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors"
+      className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-[var(--primary)] hover:text-white transition-colors"
     >
       {icons[platform]}
     </a>

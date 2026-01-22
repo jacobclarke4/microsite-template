@@ -4,7 +4,7 @@ import { Section } from './Section';
 import { Grid } from './Grid';
 import { Card } from './Card';
 import { Button } from './Button';
-import { Heading, Text, Badge } from './Typography';
+import { Heading, Text} from './Typography';
 import { GridCols, Gap, Padding, ShadowSize, Rounded, GradientConfig } from '../types';
 
 interface PricingFeature {
@@ -104,8 +104,8 @@ export function Pricing({
   cardShadow = 'lg',
   cardRounded = '2xl',
   paddingY = 'xl',
-  popularBgColor = 'bg-blue-600',
-  popularBorderColor = 'border-blue-600',
+  popularBgColor = 'bg-[var(--primary)]',
+  popularBorderColor = 'border-[var(--primary-dark)]',
   gradient,
   className,
 }: PricingProps) {
@@ -123,12 +123,12 @@ export function Pricing({
         borderColor={popularBorderColor}
         className={clsx(
           'relative flex flex-col overflow-hidden',
-          isPopular && 'ring-2 ring-blue-600 scale-105'
+          isPopular && 'ring-2 ring-[var(--primary-dark)] scale-105'
         )}
       >
         {tier.badge && (
           <div className="absolute top-0 right-0">
-            <div className="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-bl-lg">
+            <div className="bg-[var(--primary)] text-white text-xs font-semibold px-3 py-1 rounded-bl-lg">
               {tier.badge}
             </div>
           </div>
@@ -194,7 +194,7 @@ export function Pricing({
               variant={isPopular ? 'solid' : 'outline'}
               fullWidth
               size="lg"
-              bgColor={isPopular ? 'bg-blue-600 hover:bg-blue-700' : undefined}
+              bgColor={isPopular ? 'bg-[var(--primary)] hover:bg-[var(--primary-dark)]' : undefined}
             >
               {tier.ctaText}
             </Button>

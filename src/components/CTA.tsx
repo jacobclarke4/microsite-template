@@ -266,9 +266,9 @@ export function NewsletterCTA({
         <input
           type="email"
           placeholder={placeholder}
-          className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
         />
-        <Button bgColor="bg-blue-600 hover:bg-blue-700">
+        <Button bgColor="bg-[var(--primary)] hover:bg-[var(--primary-dark)]" textColor="text-white" size="lg">
           {buttonText}
         </Button>
       </form>

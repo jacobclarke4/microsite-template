@@ -119,7 +119,7 @@ export function Tabs({
                 'flex items-center gap-2 px-6 py-3 text-sm font-medium transition-all border-b-2 -mb-px',
                 fullWidth && 'flex-1 justify-center',
                 activeTab === tab.id
-                  ? 'border-blue-600 text-blue-600 bg-blue-50'
+                  ? 'border-[var(--primary)] text-[var(--primary)] bg-white]'
                   : 'border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50'
               )}
             >
@@ -192,7 +192,7 @@ export function VerticalTabs({
               className={clsx(
                 'w-full flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-left transition-colors',
                 activeTab === tab.id
-                  ? 'bg-blue-50 text-blue-600'
+                  ? 'bg-[var(--primary)] text-white'
                   : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
               )}
             >

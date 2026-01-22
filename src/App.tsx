@@ -88,27 +88,31 @@ function App() {
           variant="cards"
           showSocial={false}
           textColor='text-white'
-          cardBgColor='bg-[var(--primary)]'
+          cardBgColor='bg-white'
           members={[
             {
               name: 'Bob Williams',
               role: 'Chief Executive Officer',
               social: { linkedin: '#' },
+              bio: 'Bob has over 20 years of experience in energy infrastructure and real estate development.'
             },
             {
               name: 'Gary Johnson',
               role: 'Partner & Co-Founder',
               social: { linkedin: '#' },
+              bio: 'Gary is an expert in capital markets and has led numerous successful projects.'
             },
             {
               name: 'Jessica Smith',
               role: 'Engineering',
               social: { linkedin: '#' },
+              bio: 'Jessica brings a wealth of knowledge in engineering and project management.'
             },
             {
               name: 'Janet Lee',
               role: 'Design',
               social: { linkedin: '#' },
+              bio: 'Janet is a seasoned design professional with a focus on sustainable solutions.'
             },
           ]}
         />

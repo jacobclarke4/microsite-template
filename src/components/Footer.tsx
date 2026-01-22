@@ -96,7 +96,7 @@ export function Footer({
   socialLinks = defaultSocialLinks,
   policyLinks = defaultPolicyLinks,
   copyright = `© ${new Date().getFullYear()} BrandName. All rights reserved.`,
-  bgColor = 'bg-gray-900',
+  bgColor = 'bg-white',
   textColor = 'text-black',
   linkColor = 'text-black hover:text-[var(--primary)]',
   borderColor = 'border-gray-800',

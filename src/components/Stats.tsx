@@ -151,8 +151,8 @@ export function InlineStats({
     { value: '50+', label: 'Team' },
     { value: '10+', label: 'Years' },
   ],
-  bgColor = 'bg-blue-600',
-  textColor = 'text-blue-100',
+  bgColor = 'bg-[var(--primary)]',
+  textColor = 'text-white',
   valueColor = 'text-white',
   className,
 }: InlineStatsProps) {

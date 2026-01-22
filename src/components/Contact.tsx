@@ -84,8 +84,8 @@ export function Contact({
   formRounded = 'xl',
   inputBgColor = 'bg-gray-50',
   inputBorderColor = 'border-gray-300',
-  inputFocusColor = 'focus:border-blue-500 focus:ring-blue-500',
-  buttonBgColor = 'bg-blue-600 hover:bg-blue-700',
+  inputFocusColor = 'focus:border-[var(--primary)] focus:ring-[var(--primary)]',
+  buttonBgColor = 'bg-[var(--primary)] hover:bg-[var(--primary-dark)]',
   buttonTextColor = 'text-white',
   paddingY = 'xl',
   variant = 'split',
@@ -219,13 +219,13 @@ export function Contact({
     <div className="space-y-6">
       {contactInfo.map((info, index) => (
         <div key={index} className="flex items-start gap-4">
-          <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 text-blue-600">
+          <div className="w-10 h-10 bg-[var(--primary)] rounded-lg flex items-center justify-center flex-shrink-0 text-white">
             {info.icon}
           </div>
           <div>
             <Text fontSize="sm" textColor="text-gray-500" className="mb-1">{info.label}</Text>
             {info.href ? (
-              <a href={info.href} className="text-gray-900 hover:text-blue-600 transition-colors font-medium">
+              <a href={info.href} className="text-gray-900 hover:text-[var(--primary)] transition-colors font-medium">
                 {info.value}
               </a>
             ) : (
@@ -278,12 +278,12 @@ export function Contact({
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {contactInfo.map((info, index) => (
                 <div key={index}>
-                  <div className="w-10 h-10 mx-auto bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-3">
+                  <div className="w-10 h-10 mx-auto bg-[var(--primary)] rounded-lg flex items-center justify-center text-white mb-3">
                     {info.icon}
                   </div>
                   <Text fontSize="sm" textColor="text-gray-500" className="mb-1">{info.label}</Text>
                   {info.href ? (
-                    <a href={info.href} className="text-sm text-gray-900 hover:text-blue-600 transition-colors font-medium">
+                    <a href={info.href} className="text-sm text-gray-900 hover:text-[var(--primary)] transition-colors font-medium">
                       {info.value}
                     </a>
                   ) : (
@@ -379,8 +379,8 @@ export function ContactForm({
   successMessage = 'Thank you! Your message has been sent successfully.',
   inputBgColor = 'bg-gray-50',
   inputBorderColor = 'border-gray-300',
-  inputFocusColor = 'focus:border-blue-500 focus:ring-blue-500',
-  buttonBgColor = 'bg-blue-600 hover:bg-blue-700',
+  inputFocusColor = 'focus:border-[var(--primary)] focus:ring-[var(--primary)]',
+  buttonBgColor = 'bg-[var(--primary)] hover:bg-[var(--primary-dark)]',
   buttonTextColor = 'text-white',
   onSubmit,
   className,

@@ -67,7 +67,7 @@ export function Timeline({
   items = defaultItems,
   bgColor = 'bg-white',
   textColor = 'text-gray-900',
-  accentColor = 'bg-blue-600',
+  accentColor = 'bg-[var(--primary)]',
   lineColor = 'bg-gray-200',
   paddingY = 'xl',
   variant = 'vertical',
@@ -85,8 +85,8 @@ export function Timeline({
     }
     if (status === 'current') {
       return (
-        <div className={clsx('w-8 h-8 rounded-full flex items-center justify-center border-4 border-blue-600 bg-white')}>
-          <div className="w-3 h-3 rounded-full bg-blue-600" />
+        <div className={clsx('w-8 h-8 rounded-full flex items-center justify-center border-4 border-[var(--primary-dark)] bg-white')}>
+          <div className="w-3 h-3 rounded-full bg-[var(--primary-dark)]" />
         </div>
       );
     }
